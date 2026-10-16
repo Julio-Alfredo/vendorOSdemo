@@ -33,3 +33,11 @@ Browser key: `bvc.event-profit.v1`. Data is specific to the browser and origin. 
 ## Verification
 
 Financial and forecast assertions, malformed backup rejection, JSON round-trip, and DOM interaction tests pass. DOM tests cover create/edit/delete/duplicate, search/filter, results, goal updates, export/import, and remounting with saved local storage. JSDOM does not render layouts or charts. Actual Safari/iPhone layout, touch behavior, browser download UX, and live browser interaction require a real-browser check; they have not been claimed as tested.
+
+## Navy/teal redesign and optional cloud accounts
+
+The event planner now guides users through four steps. The guest dashboard stays on GitHub Pages, preserves the original browser storage, and links to https://bvc-event-profit.solarmink3.chatgpt.site/ for optional cloud saving using ChatGPT sign-in. Export a JSON backup from the guest site and import it after signing into the cloud workspace. Trial users need no account.
+
+Cloud hosting runs a separate server-backed Sites build with a D1 database. The shared handler in `src/cloud-api.ts` is tested with SQLite in `tests/cloud-api.test.ts`; it requires a server-supplied identity, enforces origin checks, and uses atomic revisions to reject stale writes. GitHub Pages does not run server endpoints. Cloud saves occur when saving an event, results, goals, or an import; unfinished form input is not auto-saved. Browser recovery copies are isolated by account. Sign-in and live cross-device behavior still require account-level verification.
+
+Additional tests: `node tests/cloud-ui.test.mjs` and `node --import tsx tests/cloud-api.test.ts`.
