@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "tsc && vite build && cp dist/app.html index.html && cp -r dist/assets . && touch .nojekyll",
+    "build": "tsc && vite build && cp dist/app.html index.html && cp -r dist/assets . && touch .nojekyll && node scripts/build-offline.mjs",
     "test": "node --experimental-strip-types tests/model.test.ts",
     "test:ui": "node tests/ui.test.mjs",
     "build:download": "node scripts/build-download.mjs",

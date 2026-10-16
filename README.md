@@ -4,6 +4,12 @@ Live app: https://julio-alfredo.github.io/vendorOSdemo/
 
 React + TypeScript + Vite + Recharts, with custom responsive CSS. No backend, paid services, or API keys. The original uploaded MVP is preserved unchanged in `bvc-vendoros-mvp.zip` and extracted to `legacy/index.html`; its storage key is separate.
 
+## Install on iPhone or Android
+
+Open https://julio-alfredo.github.io/vendorOSdemo/ on your phone. On iPhone, use Safari → Share → Add to Home Screen. On Android, use the browser’s Install app option. Keep the first visit online until **Offline ready** appears. The installed app opens without browser navigation and its calculator works offline. Cloud sign-in requires internet. Export a JSON backup before moving from a browser to a home-screen app, and import it if your records do not appear. Storage remains device-specific and may be cleared by the browser/OS; installation is not cloud backup.
+
+The build generates a versioned service worker with the exact JS/CSS asset names. New versions activate once older app windows close. Native-device installation and visual layout require device testing.
+
 ## Download and use — no setup
 
 **[Download VendorOS.html](https://github.com/Julio-Alfredo/vendorOSdemo/raw/refs/heads/main/downloads/VendorOS.html)** · **[Download page](https://julio-alfredo.github.io/vendorOSdemo/downloads/)**
