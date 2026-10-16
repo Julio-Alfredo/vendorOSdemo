@@ -4,6 +4,22 @@ Live app: https://julio-alfredo.github.io/vendorOSdemo/
 
 React + TypeScript + Vite + Recharts, with custom responsive CSS. No backend, paid services, or API keys. The original uploaded MVP is preserved unchanged in `bvc-vendoros-mvp.zip` and extracted to `legacy/index.html`; its storage key is separate.
 
+## Download and use — no setup
+
+**[Download VendorOS.html](https://github.com/Julio-Alfredo/vendorOSdemo/raw/refs/heads/main/downloads/VendorOS.html)** · **[Download page](https://julio-alfredo.github.io/vendorOSdemo/downloads/)**
+
+1. Download `VendorOS.html` and keep it in a permanent folder.
+2. Open it with a desktop browser such as Chrome, Edge, Firefox, or Safari. No Node, terminal, server, or installation is needed.
+3. Use **Backup → Export JSON backup** after each session. Import that backup to restore or move your data.
+
+All code, styles, and charts are inside the file, so calculations and event tracking work offline. Local-file storage depends on the browser and file location; moving or renaming the file may make previous entries unavailable. The app warns when storage is unavailable. Keep JSON backups separate from the app file. Opening the cloud link requires internet; local entries are not automatically uploaded.
+
+**On iPhone/iPad:** use the [live app](https://julio-alfredo.github.io/vendorOSdemo/) in Safari. Downloaded HTML may open as a Files preview rather than a working browser app. For convenient access, use Safari’s Share → Add to Home Screen. This is a web app, not an App Store or native installer.
+
+Optional account storage: [cloud dashboard](https://bvc-event-profit.solarmink3.chatgpt.site/). Export local data first, sign in, then import it there.
+
+Developers: `npm run build:download` regenerates the standalone file; `npm run test:download` checks it launches from local-file and web URLs. Rebuild it after changing application code.
+
 ## Development
 
 Use Node 24+. Run `npm ci`, `npm test`, `node tests/ui.test.mjs`, and `npm run build`.

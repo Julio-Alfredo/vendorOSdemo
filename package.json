@@ -6,7 +6,9 @@
   "scripts": {
     "build": "tsc && vite build && cp dist/app.html index.html && cp -r dist/assets . && touch .nojekyll",
     "test": "node --experimental-strip-types tests/model.test.ts",
-    "test:ui": "node tests/ui.test.mjs"
+    "test:ui": "node tests/ui.test.mjs",
+    "build:download": "node scripts/build-download.mjs",
+    "test:download": "node tests/download.test.mjs"
   },
   "repository": {
     "type": "git",

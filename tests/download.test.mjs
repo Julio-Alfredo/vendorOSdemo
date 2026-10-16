@@ -1,0 +1,5 @@
+import{JSDOM}from'jsdom';import{readFileSync}from'node:fs';import assert from'node:assert/strict';import{waitFor,within}from'@testing-library/dom';
+const html=readFileSync('downloads/VendorOS.html','utf8');
+for(const url of ['file:///Downloads/VendorOS.html','https://example.com/downloads/VendorOS.html']){
+const dom=new JSDOM(html,{url,runScripts:'dangerously',pretendToBeVisual:true,beforeParse(w){w.ResizeObserver=class{observe(){}unobserve(){}disconnect(){}};w.structuredClone=structuredClone;w.scrollTo=()=>{};w.confirm=()=>true;}});
+const q=within(dom.window.document.body);await waitFor(()=>assert(q.getByRole('button',{name:'Analyze New Event'})),{container:dom.window.document,timeout:5000});q.getByRole('button',{name:'Analyze New Event'}).click();await waitFor(()=>assert(q.getByLabelText('Event name')),{container:dom.window.document});assert(!dom.window.document.querySelector('script[src]'));console.log('PASS: self-contained app launches and opens event form at '+url);dom.window.close();}
