@@ -63,3 +63,6 @@ The event planner now guides users through four steps. The guest dashboard stays
 Cloud hosting runs a separate server-backed Sites build with a D1 database. The shared handler in `src/cloud-api.ts` is tested with SQLite in `tests/cloud-api.test.ts`; it requires a server-supplied identity, enforces origin checks, and uses atomic revisions to reject stale writes. GitHub Pages does not run server endpoints. Cloud saves occur when saving an event, results, goals, or an import; unfinished form input is not auto-saved. Browser recovery copies are isolated by account. Sign-in and live cross-device behavior still require account-level verification.
 
 Additional tests: `node tests/cloud-ui.test.mjs` and `node --import tsx tests/cloud-api.test.ts`.
+
+## Refined interface and reports
+The compact dashboard includes reusable new-event defaults (select on the plan review), product costs as a percentage or dollars per transaction, event CSV export, and per-event reports with Print / Save PDF. Existing version-1 backups remain compatible. Reports use the browser print dialog; PDF availability depends on the device.
