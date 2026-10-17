@@ -69,3 +69,12 @@ The compact dashboard includes reusable new-event defaults (select on the plan r
 
 ## Attendance trends
 Record optional actual attendance alongside completed-event transactions. Events shows pooled transactions per 100 attendees; the Sales step can apply that rate to expected attendance. Unknown/zero attendance, future/incomplete events and demo records are excluded from real trends. Repeat purchases may produce rates above 100. The rate is a saved snapshot, not an automatic rewrite of older plans. Existing average sale and cost inputs determine revenue and profit. CSV includes attendance and event transaction rates.
+
+## Vendor tools release
+Tools includes maximum booth fee, transactions/hour targets, comparable event-type trends, manual weather/turnout/time stress tests, product costing and weighted sales mix, buffered unit prep lists, stock/waste/sellout logs, event scorecards, booking deadlines/status/payments, and a separate overhead/owner-time view. Deposits are not additional costs. Prep assumes one unit per transaction and is editable through the stock log. Owner allowances do not alter operating-profit goals.
+
+CSV import accepts transaction-level CSV files through explicit net-sales and transaction-ID column mapping. Filter the file to one event first; remove refunds, tax/tips, totals, voids and item-level records. Preview and confirm before replacing revenue/count. This is not a direct POS account integration. Existing costs are retained, or zero until entered.
+
+Cloud offline access: the hosted site caches a public static shell, never API/auth responses. After one online visit and Offline ready, an account's device copy and pending edits survive app restarts. Online/app-open reconnection checks account identity and revision before upload. Conflicts pause syncing and provide export/discard controls. No automatic merge or background sync while the app is closed. Browser eviction/private mode can remove offline data. Export backups, especially on shared devices. GitHub remains browser-only; cloud sync uses the hosted site.
+
+Checks: npm test; npm run test:ui; npm run test:tools; npm run test:sync; node tests/offline.test.mjs; node tests/cloud-worker.test.mjs /path/to/cloud/public; node --import tsx tests/cloud-api.test.ts; npm run test:download. Native iPhone visual, printing and airplane-mode verification remain device checks.
