@@ -66,3 +66,6 @@ Additional tests: `node tests/cloud-ui.test.mjs` and `node --import tsx tests/cl
 
 ## Refined interface and reports
 The compact dashboard includes reusable new-event defaults (select on the plan review), product costs as a percentage or dollars per transaction, event CSV export, and per-event reports with Print / Save PDF. Existing version-1 backups remain compatible. Reports use the browser print dialog; PDF availability depends on the device.
+
+## Attendance trends
+Record optional actual attendance alongside completed-event transactions. Events shows pooled transactions per 100 attendees; the Sales step can apply that rate to expected attendance. Unknown/zero attendance, future/incomplete events and demo records are excluded from real trends. Repeat purchases may produce rates above 100. The rate is a saved snapshot, not an automatic rewrite of older plans. Existing average sale and cost inputs determine revenue and profit. CSV includes attendance and event transaction rates.
