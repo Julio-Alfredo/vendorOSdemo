@@ -81,3 +81,13 @@ Checks: npm test; npm run test:ui; npm run test:tools; npm run test:sync; node t
 
 ## Navigation update
 There is no central Tools tab. Products holds costing and sales mix. Each event has Prep and Booking & costs shortcuts. Record results includes CSV import and Stock, waste & event review. The planning Sales step filters attendance history by event type; Costs can apply saved product costs; Review shows booth-fee limits, hourly targets and turnout stress checks. Existing saved data is unchanged.
+
+## Offline edition — event companion redesign
+
+The GitHub app now opens on **Today**, with **Events** and **Products** as its main tabs. Goals and backup remain available from the header. Planning review explains profit, illustrative scenarios and targets; Event day adds a local sales log and packing checklist. Final results explicitly require reviewing expenses before they count toward annual profit. Duplicating an event clears its sales log. Stock is manually tracked, not automatically deducted from sales.
+
+No sign-in, API, remote font or payment connection is required for the GitHub edition. On iPhone, open the live GitHub Pages app online in Safari, add it to the Home Screen, and open it once online until installation says **Offline ready**. Then it can reopen offline. Under installation, **Update app now** appears when an update has finished downloading; save forms before updating. Browser cleanup can erase both data and offline app files. Export JSON backups regularly. A home-screen installation may have separate storage from the browser tab.
+
+The self-contained `downloads/VendorOS.html` bundles code and styles for compatible desktop browsers. Opening downloaded HTML files on iOS is browser-dependent; use the installed website on iPhone. Data is device/browser-specific and is not automatically synchronized. This public repository does not implement a paywall or license enforcement.
+
+Validation: financial/model tests, existing DOM workflows, event-day sales/checklist persistence and completion tests, backup validation, self-contained download launch, service-worker offline fallback and asset completeness. These are automated logic/DOM checks, not physical iPhone airplane-mode or visual layout tests.

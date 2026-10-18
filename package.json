@@ -10,7 +10,8 @@
     "build:download": "node scripts/build-download.mjs",
     "test:download": "node tests/download.test.mjs",
     "test:tools": "node --experimental-strip-types tests/tools.test.ts && node tests/tools-ui.test.mjs",
-    "test:sync": "node tests/cloud-ui.test.mjs && node tests/offline-sync.test.mjs"
+    "test:sync": "node tests/cloud-ui.test.mjs && node tests/offline-sync.test.mjs",
+    "test:journey": "node --experimental-strip-types tests/journey.test.mjs"
   },
   "repository": {
     "type": "git",
