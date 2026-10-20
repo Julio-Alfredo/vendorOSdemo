@@ -4,14 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "tsc && vite build && cp dist/app.html index.html && cp -r dist/assets . && touch .nojekyll && node scripts/build-offline.mjs",
+    "build": "tsc && vite build && cp dist/app.html index.html && cp -r dist/assets . && touch .nojekyll && node scripts/build-offline.mjs && node scripts/build-download.mjs && node scripts/build-commerce.mjs",
     "test": "node --experimental-strip-types tests/model.test.ts",
     "test:ui": "node tests/ui.test.mjs",
     "build:download": "node scripts/build-download.mjs",
     "test:download": "node tests/download.test.mjs",
     "test:tools": "node --experimental-strip-types tests/tools.test.ts && node tests/tools-ui.test.mjs",
     "test:sync": "node tests/cloud-ui.test.mjs && node tests/offline-sync.test.mjs",
-    "test:journey": "node --experimental-strip-types tests/journey.test.mjs"
+    "test:journey": "node --experimental-strip-types tests/journey.test.mjs",
+    "test:commerce": "node --experimental-strip-types --test tests/commerce/core.test.mjs"
   },
   "repository": {
     "type": "git",

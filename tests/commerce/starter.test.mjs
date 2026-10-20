@@ -1,0 +1,14 @@
+import assert from 'node:assert/strict';
+import {createRequire} from 'node:module';
+import {starterHtml} from '../../commerce/package.ts';
+const require=createRequire(import.meta.url);
+const {JSDOM}=require('jsdom');
+const dom=new JSDOM(starterHtml,{url:'https://example.com/starter',runScripts:'dangerously',beforeParse(w){w.TextDecoder=TextDecoder;w.scrollTo=()=>{}}});
+const w=dom.window,$=id=>w.document.getElementById(id);
+$('name').value='Trial truck';$('apply').checked=true;$('profile').dispatchEvent(new w.Event('submit',{cancelable:true}));
+const data=JSON.parse(w.localStorage.getItem('bvc.event-profit.v1'));assert.equal(data.defaults.ticket,15);assert.equal(data.goals.event,500);assert.equal(data.events.length,0);
+data.events=[{id:'keep-me'}];w.localStorage.setItem('bvc.event-profit.v1',JSON.stringify(data));$('ticket').value='20';$('profile').dispatchEvent(new w.Event('submit',{cancelable:true}));assert.equal(JSON.parse(w.localStorage.getItem('bvc.event-profit.v1')).events[0].id,'keep-me');
+$('preset').value='artisan';$('preset').dispatchEvent(new w.Event('change'));assert.equal($('ticket').value,'35');
+$('open').click();assert.equal($('welcome').hidden,true);assert.match(w.document.querySelector('iframe').srcdoc,/BVC VendorOS/);$('setup').click();assert.equal($('welcome').hidden,false);
+w.localStorage.setItem('bvc.event-profit.v1','broken');$('profile').dispatchEvent(new w.Event('submit',{cancelable:true}));assert.match($('result').textContent,/Could not save/);assert.equal(w.localStorage.getItem('bvc.event-profit.v1'),'broken');
+assert.equal(dom.window.document.querySelectorAll('script[src]').length,0);assert.match(starterHtml,/width=device-width/);dom.window.close();console.log('PASS: starter defaults, preset switching, existing-event preservation, malformed-storage protection, planner launch, no external scripts.');
